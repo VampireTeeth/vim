@@ -178,6 +178,14 @@ nnoremap <C-L> :nohl<CR><C-L>
 "map <S-j> <C-w>j
 "map <S-k> <C-w>k
 "map <S-l> <C-w>l
+nnoremap <leader>a <C-w>h
+nnoremap <leader>s <C-w>j
+nnoremap <leader>w <C-w>k
+nnoremap <leader>d <C-w>l
+nnoremap <leader>q :bprevious<CR>
+nnoremap <leader>e :bnext<CR>
+nnoremap <leader>r :ls<CR>
+
 
 "nnoremap <C-t> :tabnew<CR>
 "nnoremap <C-c> :tabclose<CR>
