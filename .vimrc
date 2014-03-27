@@ -1,13 +1,9 @@
-set nobackup
-set nowritebackup
-set noswapfile
 
 "              If you're a more advanced user, building your own .vimrc based
 "              on this file is still a good idea.
 
 "------------------------------------------------------------
-" Features {{{1
-"
+" Features {{{1 "
 " These options and commands enable some very useful features in Vim, that
 " no user should have to live without.
 
@@ -22,9 +18,6 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-" Set GUI font
-set guifont=Lucida_Console:h9:cANSI
-
 " Enable syntax highlighting
 syntax on
 
@@ -33,7 +26,6 @@ set nobackup
 set noswapfile
 
 "Colorscheme setting
-colorscheme desert
 "------------------------------------------------------------
 " Must have options {{{1
 "
@@ -170,6 +162,10 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 "------------------------------------------------------------
 
+"Window size settings
+"set nofu
+set lines=50 columns=150
+
 "Font size settings
 "set guifont=Consolas:h12
 
@@ -185,21 +181,18 @@ nnoremap <leader>d <C-w>l
 nnoremap <leader>q :bprevious<CR>
 nnoremap <leader>e :bnext<CR>
 nnoremap <leader>r :ls<CR>
-
+nnoremap <leader>t :Tagbar<CR>
 
 "nnoremap <C-t> :tabnew<CR>
-"nnoremap <C-c> :tabclose<CR>
-"nnoremap <A-[> :tabprevious<CR>
-"nnoremap <A-]> :tabnext<CR>
+nnoremap <C-c> :tabclose<CR>
+nnoremap <A-[> :tabprevious<CR>
+nnoremap <A-]> :tabnext<CR>
 
 
 "nnoremap <C-e> :NERDTreeToggle<CR>
 "nnoremap <C-i> :TlistToggle<CR>
-"inoremap <tab> <C-x><C-o>
 highlight Pmenu ctermfg=1 ctermbg=4 guibg=grey30
 
-
-let g:SuperTabDefaultCompletionType = '<C-x><C-n>'
 set nohlsearch
 
 "clang-complete settings
@@ -210,14 +203,14 @@ set nohlsearch
 "VimLite settings
 "let g:VLWorkspaceEnableCscope = 1
 "let g:VLWorkspaceParseFileAfterSave = 1
-"
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP 
+
 
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/vimfiles/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 
 " let Vundle manage Vundle
 " required! 
@@ -233,10 +226,56 @@ Bundle 'tpope/vim-rails.git'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+" non-GitHub repos
+Bundle 'git://git.wincent.com/command-t.git'
+" Git repos on your local machine (i.e. when working on your own plugin)
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/unite.vim'
+Bundle 'm2mdas/phpcomplete-extended'
 Bundle 'derekwyatt/vim-scala'
-filetype plugin indent on     
+Bundle 'git://github.com/jiangmiao/auto-pairs'
+Bundle 'git://github.com/majutsushi/tagbar'
+Bundle 'git://github.com/laurilehmijoki/haskellmode-vim'
+Bundle 'git://github.com/dag/vim2hs'
+Bundle 'git://github.com/jnurmine/Zenburn'
+Bundle 'git://github.com/flazz/vim-colorschemes'
+Bundle 'git://github.com/eagletmt/ghcmod-vim'
+Bundle 'git://github.com/eagletmt/neco-ghc'
+" ...
 
-"Window size settings
-"set nofu
-set lines=60
-set columns=250
+filetype plugin indent on
+"autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
+let g:SuperTabDefaultCompletionType = '<C-x><C-i>'
+let g:phpcomplete_index_composer_command="composer.phar"
+
+
+let g:haddock_browser = '/usr/bin/google-chrome'
+
+let g:ghc = '/usr/bin/ghc'
+let g:haskell_conceal = 0
+let g:haskell_multiline_strings = 1
+
+" disable all conceals, including the simple ones like
+" lambda and composition
+"let g:haskell_conceal = 0
+
+" disable concealing of "enumerations": commatized lists like
+" deriving clauses and LANGUAGE pragmas,
+" otherwise collapsed into a single ellipsis
+"let g:haskell_conceal_enumerations = 0
+
+
+"Configurations for ghcmod
+let g:ghcmod_ghc_options = ['-idir1', '-idir2']
+autocmd BufRead,BufNewFile ~/.xmonad/* call s:add_xmonad_path()
+function! s:add_xmonad_path()
+  if !exists('b:ghcmod_ghc_options')
+    let b:ghcmod_ghc_options = []
+  endif
+  call add(b:ghcmod_ghc_options, '-i' . expand('~/.xmonad/lib'))
+endfunction
+hi ghcmodType ctermbg=yellow
+let g:ghcmod_type_highlight = 'ghcmodType'
+
+colorscheme darkburn 
+let $PATH = $PATH . ':' . expand("~/.cabal/bin")
