@@ -1,3 +1,6 @@
+set nobackup
+set nowritebackup
+set noswapfile
 
 "              If you're a more advanced user, building your own .vimrc based
 "              on this file is still a good idea.
@@ -18,6 +21,9 @@ set nocompatible
 filetype on
 filetype plugin on
 filetype plugin indent on
+
+" Set GUI font
+set guifont=Lucida_Console:h9:cANSI
 
 " Enable syntax highlighting
 syntax on
@@ -137,9 +143,9 @@ set pastetoggle=<F11>
 
 " Indentation settings for using 2 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as
@@ -164,42 +170,65 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 "------------------------------------------------------------
 
-"Window size settings
-"set nofu
-set lines=50 columns=150
-
 "Font size settings
 "set guifont=Consolas:h12
 
 "Key mappings
-map <S-h> <C-w>h
-map <S-j> <C-w>j
-map <S-k> <C-w>k
-map <S-l> <C-w>l
+"map <S-h> <C-w>h
+"map <S-j> <C-w>j
+"map <S-k> <C-w>k
+"map <S-l> <C-w>l
 
-nnoremap <C-t> :tabnew<CR>
-nnoremap <C-c> :tabclose<CR>
-nnoremap <A-[> :tabprevious<CR>
-nnoremap <A-]> :tabnext<CR>
+"nnoremap <C-t> :tabnew<CR>
+"nnoremap <C-c> :tabclose<CR>
+"nnoremap <A-[> :tabprevious<CR>
+"nnoremap <A-]> :tabnext<CR>
 
 
-nnoremap <C-e> :NERDTreeToggle<CR>
-nnoremap <C-i> :TlistToggle<CR>
-inoremap <tab> <C-x><C-o>
+"nnoremap <C-e> :NERDTreeToggle<CR>
+"nnoremap <C-i> :TlistToggle<CR>
+"inoremap <tab> <C-x><C-o>
 highlight Pmenu ctermfg=1 ctermbg=4 guibg=grey30
 
 
-"let g:SuperTabDefaultCompletionType = '<C-x><C-u>'
+let g:SuperTabDefaultCompletionType = '<C-x><C-n>'
 set nohlsearch
 
 "clang-complete settings
-let g:clang_library_path='/usr/lib'
-let g:clang_complete_auto=1
+"let g:clang_library_path='/usr/lib'
+"let g:clang_complete_auto=1
 
 
 "VimLite settings
-let g:VLWorkspaceEnableCscope = 1
-let g:VLWorkspaceParseFileAfterSave = 1
+"let g:VLWorkspaceEnableCscope = 1
+"let g:VLWorkspaceParseFileAfterSave = 1
+"
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP 
 
+set nocompatible              " be iMproved
+filetype off                  " required!
 
+set rtp+=~/vimfiles/bundle/vundle/
+call vundle#rc()
 
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My bundles here:
+"
+" original repos on GitHub
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'derekwyatt/vim-scala'
+filetype plugin indent on     
+
+"Window size settings
+"set nofu
+set lines=60
+set columns=250
