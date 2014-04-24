@@ -1,4 +1,3 @@
-
 "              If you're a more advanced user, building your own .vimrc based
 "              on this file is still a good idea.
 
@@ -167,7 +166,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 set lines=50 columns=150
 
 "Font size settings
-"set guifont=Consolas:h12
+set guifont=Consolas:h10
 
 "Key mappings
 "map <S-h> <C-w>h
@@ -184,9 +183,8 @@ nnoremap <leader>r :ls<CR>
 nnoremap <leader>t :Tagbar<CR>
 
 "nnoremap <C-t> :tabnew<CR>
-nnoremap <C-c> :tabclose<CR>
-nnoremap <A-[> :tabprevious<CR>
-nnoremap <A-]> :tabnext<CR>
+nnoremap <leader>1 :tabprevious<CR>
+nnoremap <leader>2 :tabnext<CR>
 
 
 "nnoremap <C-e> :NERDTreeToggle<CR>
@@ -208,7 +206,7 @@ set nohlsearch
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 
@@ -218,29 +216,31 @@ Bundle 'gmarik/vundle'
 
 " My bundles here:
 "
-" original repos on GitHub
+"repos 
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-" non-GitHub repos
-Bundle 'git://git.wincent.com/command-t.git'
-" Git repos on your local machine (i.e. when working on your own plugin)
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/unite.vim'
-Bundle 'm2mdas/phpcomplete-extended'
+
+Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'm2mdas/phpcomplete-extended'
+Bundle 'git://github.com/StanAngeloff/php.vim.git'
 Bundle 'derekwyatt/vim-scala'
+Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'git://github.com/jiangmiao/auto-pairs'
 Bundle 'git://github.com/majutsushi/tagbar'
 Bundle 'git://github.com/laurilehmijoki/haskellmode-vim'
-Bundle 'git://github.com/dag/vim2hs'
 Bundle 'git://github.com/jnurmine/Zenburn'
 Bundle 'git://github.com/flazz/vim-colorschemes'
-Bundle 'git://github.com/eagletmt/ghcmod-vim'
-Bundle 'git://github.com/eagletmt/neco-ghc'
+Bundle 'git://github.com/scrooloose/syntastic.git'
+Bundle 'git://github.com/tomtom/tcomment_vim.git'
+"Bundle 'git://github.com/dag/vim2hs'
+"Bundle 'git://github.com/eagletmt/ghcmod-vim'
+"Bundle 'git://github.com/eagletmt/neco-ghc'
 " ...
 
 filetype plugin indent on
@@ -249,12 +249,12 @@ let g:SuperTabDefaultCompletionType = '<C-x><C-i>'
 let g:phpcomplete_index_composer_command="composer.phar"
 
 
-let g:haddock_browser = '/usr/bin/google-chrome'
-
-let g:ghc = '/usr/bin/ghc'
-let g:haskell_conceal = 0
-let g:haskell_multiline_strings = 1
-
+"let g:haddock_browser = '/usr/bin/google-chrome'
+"
+"let g:ghc = '/usr/bin/ghc'
+"let g:haskell_conceal = 0
+"let g:haskell_multiline_strings = 1
+"
 " disable all conceals, including the simple ones like
 " lambda and composition
 "let g:haskell_conceal = 0
@@ -266,16 +266,18 @@ let g:haskell_multiline_strings = 1
 
 
 "Configurations for ghcmod
-let g:ghcmod_ghc_options = ['-idir1', '-idir2']
-autocmd BufRead,BufNewFile ~/.xmonad/* call s:add_xmonad_path()
-function! s:add_xmonad_path()
-  if !exists('b:ghcmod_ghc_options')
-    let b:ghcmod_ghc_options = []
-  endif
-  call add(b:ghcmod_ghc_options, '-i' . expand('~/.xmonad/lib'))
-endfunction
-hi ghcmodType ctermbg=yellow
-let g:ghcmod_type_highlight = 'ghcmodType'
-
+"let g:ghcmod_ghc_options = ['-idir1', '-idir2']
+"autocmd BufRead,BufNewFile ~/.xmonad/* call s:add_xmonad_path()
+"function! s:add_xmonad_path()
+"  if !exists('b:ghcmod_ghc_options')
+"    let b:ghcmod_ghc_options = []
+"  endif
+"  call add(b:ghcmod_ghc_options, '-i' . expand('~/.xmonad/lib'))
+"endfunction
+"hi ghcmodType ctermbg=yellow
+"let g:ghcmod_type_highlight = 'ghcmodType'
+"
+"let $PATH = $PATH . ':' . expand("~/.cabal/bin")
+"
 colorscheme darkburn 
-let $PATH = $PATH . ':' . expand("~/.cabal/bin")
+:cd ~
