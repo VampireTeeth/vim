@@ -206,47 +206,52 @@ set nohlsearch
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
+set rtp+=~/.vim/bundle/Vundle.vim
+"set rtp+=~/.vim/bundle/vundle
+"let path='~/vimfiles/bundle'
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
 "
 "repos 
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/unite.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim'} 
+Plugin 'tpope/vim-rails.git'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
 
-Bundle 'shawncplus/phpcomplete.vim'
-"Bundle 'm2mdas/phpcomplete-extended'
-Bundle 'git://github.com/StanAngeloff/php.vim.git'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'git://github.com/jiangmiao/auto-pairs'
-Bundle 'git://github.com/majutsushi/tagbar'
-Bundle 'git://github.com/laurilehmijoki/haskellmode-vim'
-Bundle 'git://github.com/jnurmine/Zenburn'
-Bundle 'git://github.com/flazz/vim-colorschemes'
-Bundle 'git://github.com/scrooloose/syntastic.git'
-Bundle 'git://github.com/tomtom/tcomment_vim.git'
-"Bundle 'git://github.com/dag/vim2hs'
-"Bundle 'git://github.com/eagletmt/ghcmod-vim'
-"Bundle 'git://github.com/eagletmt/neco-ghc'
+Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'm2mdas/phpcomplete-extended'
+Plugin 'git://github.com/StanAngeloff/php.vim.git'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'git://github.com/jiangmiao/auto-pairs'
+Plugin 'git://github.com/majutsushi/tagbar'
+Plugin 'git://github.com/laurilehmijoki/haskellmode-vim'
+Plugin 'git://github.com/jnurmine/Zenburn'
+Plugin 'git://github.com/flazz/vim-colorschemes'
+Plugin 'git://github.com/scrooloose/syntastic.git'
+Plugin 'git://github.com/tomtom/tcomment_vim.git'
+Plugin 'git://github.com/klen/python-mode'
+Plugin 'git://github.com/ervandew/supertab'
+"Plugin 'git://github.com/dag/vim2hs'
+"Plugin 'git://github.com/eagletmt/ghcmod-vim'
+"Plugin 'git://github.com/eagletmt/neco-ghc'
 " ...
 
-filetype plugin indent on
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instea
+
 "autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
 let g:SuperTabDefaultCompletionType = '<C-x><C-i>'
-let g:phpcomplete_index_composer_command="composer.phar"
+"let g:phpcomplete_index_composer_command="composer.phar"
 
 
 "let g:haddock_browser = '/usr/bin/google-chrome'
@@ -279,5 +284,6 @@ let g:phpcomplete_index_composer_command="composer.phar"
 "
 "let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 "
-colorscheme darkburn 
+colorscheme desert 
+"let g:pymode_indent = 0
 :cd ~
