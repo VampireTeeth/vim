@@ -221,7 +221,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'tpope/vim-rails.git'
-Plugin 'L9'
+Plugin 'vim-scripts/L9'
 Plugin 'FuzzyFinder'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
