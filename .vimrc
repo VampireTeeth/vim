@@ -246,10 +246,8 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'Chiel92/vim-autoformat'
-"Plugin 'git://github.com/dag/vim2hs'
-"Plugin 'git://github.com/eagletmt/ghcmod-vim'
-"Plugin 'git://github.com/eagletmt/neco-ghc'
-" ...
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'vim-scripts/CCTree'
 
 call vundle#end()
 filetype plugin indent on
