@@ -248,6 +248,7 @@ Plugin 'tomasr/molokai'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'vim-scripts/CCTree'
+Plugin 'vim-php/vim-php-refactoring'
 
 call vundle#end()
 filetype plugin indent on
