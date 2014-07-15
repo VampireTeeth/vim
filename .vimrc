@@ -285,3 +285,4 @@ set fileencoding=utf-8  " The encoding written to file.
 
 colorscheme molokai
 autocmd FileType tagbar setlocal cursorline
+set cursorline cursorcolumn
