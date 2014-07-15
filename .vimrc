@@ -126,6 +126,7 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
+set cursorline
 
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -163,10 +164,10 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 "Window size settings
 "set nofu
-set lines=50 columns=150
+set lines=100 columns=250
 
 "Font size settings
-set guifont=Consolas:h10
+set guifont=Consolas:h12
 
 "Key mappings
 "map <S-h> <C-w>h
@@ -181,6 +182,7 @@ nnoremap <leader>q :bprevious<CR>
 nnoremap <leader>e :bnext<CR>
 nnoremap <leader>r :ls<CR>
 nnoremap <leader>t :Tagbar<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 "nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>1 :tabprevious<CR>
@@ -219,12 +221,13 @@ Bundle 'gmarik/vundle'
 "repos 
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'tpope/vim-rails.git'
-Plugin 'vim-scripts/L9'
+Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimshell'
+Plugin 'scrooloose/nerdtree'
 
 Plugin 'shawncplus/phpcomplete.vim'
 "Plugin 'm2mdas/phpcomplete-extended'
@@ -236,27 +239,42 @@ Plugin 'git://github.com/majutsushi/tagbar'
 Plugin 'git://github.com/laurilehmijoki/haskellmode-vim'
 Plugin 'git://github.com/jnurmine/Zenburn'
 Plugin 'git://github.com/flazz/vim-colorschemes'
+Plugin 'morhetz/gruvbox'
+Plugin 'hukl/Smyck-Color-Scheme'
 Plugin 'git://github.com/scrooloose/syntastic.git'
 Plugin 'git://github.com/tomtom/tcomment_vim.git'
-Plugin 'git://github.com/klen/python-mode'
+Plugin 'vim-scripts/Pydiction'
 Plugin 'git://github.com/pangloss/vim-javascript'
 Plugin 'git://github.com/moll/vim-node'
 Plugin 'git://github.com/myhere/vim-nodejs-complete'
+" Plugin 'megaannum/forms'
+Plugin 'megaannum/self'
+Plugin 'jaredly/vim-debug'
 Plugin 'msanders/snipmate.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'vim-scripts/AutoComplPop'
-Plugin 'vim-scripts/CCTree'
 Plugin 'vim-php/vim-php-refactoring'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'megaannum/vimside'
+Plugin 'ervandew/supertab'
+" Plugin 'aemoncannon/ensime'
+" Plugin 'Valloric/YouCompleteMe'
+"Plugin 'git://github.com/dag/vim2hs'
+"Plugin 'git://github.com/eagletmt/ghcmod-vim'
+"Plugin 'git://github.com/eagletmt/neco-ghc'
+" ...
 
 call vundle#end()
 filetype plugin indent on
+let g:pydiction_location = 'C:/Users/stevenl/.vim/bundle/Pydiction/complete-dict'
+let g:pydiction_menu_height = 10 
 "autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
 let g:SuperTabDefaultCompletionType = '<C-x><C-i>'
 "let g:phpcomplete_index_composer_command="composer.phar"
 
-
+"Configurations for php-refactoring
+let g:php_refactor_command='php ~/bin/refactor.phar'
 "let g:haddock_browser = '/usr/bin/google-chrome'
 "
 "let g:ghc = '/usr/bin/ghc'
@@ -287,5 +305,9 @@ let g:SuperTabDefaultCompletionType = '<C-x><C-i>'
 "
 "let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 "
-colorscheme darkburn 
-:cd ~
+
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
+
+colorscheme molokai
+autocmd FileType tagbar setlocal cursorline
