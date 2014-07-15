@@ -214,56 +214,30 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
 "
-"repos 
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-rails.git'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
+" Git repos on your local machine (i.e. when working on your own plugin)
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimshell'
-Plugin 'scrooloose/nerdtree'
-
-Plugin 'shawncplus/phpcomplete.vim'
-"Plugin 'm2mdas/phpcomplete-extended'
-Plugin 'git://github.com/StanAngeloff/php.vim.git'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'git://github.com/jiangmiao/auto-pairs'
-Plugin 'git://github.com/majutsushi/tagbar'
-Plugin 'git://github.com/laurilehmijoki/haskellmode-vim'
-Plugin 'git://github.com/jnurmine/Zenburn'
-Plugin 'git://github.com/flazz/vim-colorschemes'
-Plugin 'morhetz/gruvbox'
-Plugin 'hukl/Smyck-Color-Scheme'
-Plugin 'git://github.com/scrooloose/syntastic.git'
-Plugin 'git://github.com/tomtom/tcomment_vim.git'
-Plugin 'vim-scripts/Pydiction'
-Plugin 'git://github.com/pangloss/vim-javascript'
-Plugin 'git://github.com/moll/vim-node'
-Plugin 'git://github.com/myhere/vim-nodejs-complete'
-" Plugin 'megaannum/forms'
-Plugin 'megaannum/self'
-Plugin 'jaredly/vim-debug'
-Plugin 'msanders/snipmate.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tomasr/molokai'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'vim-php/vim-php-refactoring'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'megaannum/vimside'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'majutsushi/tagbar'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'ervandew/supertab'
-" Plugin 'aemoncannon/ensime'
-" Plugin 'Valloric/YouCompleteMe'
-"Plugin 'git://github.com/dag/vim2hs'
-"Plugin 'git://github.com/eagletmt/ghcmod-vim'
-"Plugin 'git://github.com/eagletmt/neco-ghc'
-" ...
+Plugin 'tomtom/tcomment_vim.git'
+Plugin 'kevinw/pyflakes-vim.git'
+Plugin 'pangloss/vim-javascript'
+Plugin 'moll/vim-node'
+Plugin 'myhere/vim-nodejs-complete'
+Plugin 'msanders/snipmate.vim'
+Plugin 'tommorris/scala-vim-snippets'
+Plugin 'kien/ctrlp.vim'
+Plugin 'lsdr/monokai'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'scrooloose/nerdtree'
+Plugin 'megaannum/vimside'
 
 call vundle#end()
 filetype plugin indent on
