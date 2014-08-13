@@ -283,6 +283,33 @@ let g:php_refactor_command='php ~/bin/refactor.phar'
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 
-colorscheme molokai
+colorscheme lucius
 autocmd FileType tagbar setlocal cursorline
 set cursorline cursorcolumn
+
+fu! GetSelectionText()
+  exe 'normal! gv"ay'
+  return getreg("a")
+endfu
+
+function! SearchPatternInFiles(pattern, files)
+  let cmd = "vimgrep " . a:pattern . " " . a:files
+  echom "Executing: " . cmd . " ..."
+  exe cmd
+endfunction
+
+fu! SearchWordUnderCursorInFilesOfTheSameType()
+  let pattern = '/' . expand("<cword>") . '/gj'
+  let type = expand("%:e")
+  let files = expand("%:p:h") . '/**/*.' . type
+  call SearchPatternInFiles(pattern, files)
+endfu
+
+fu! SearchSelectionInFilesOfTheSameType()
+  let pattern = '/' . GetSelectionText() . '/gj'
+  let files = expand("%:p:h") . '/**/*.' . expand("%:e")
+  call SearchPatternInFiles(pattern, files)
+endfu
+
+nnoremap <leader>* :call SearchWordUnderCursorInFilesOfTheSameType()<CR><CR>:copen<CR>
+vnoremap <leader>* :call SearchSelectionInFilesOfTheSameType()<CR><CR>:copen<CR>
