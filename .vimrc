@@ -238,6 +238,9 @@ Plugin 'lsdr/monokai'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'scrooloose/nerdtree'
 Plugin 'megaannum/vimside'
+Plugin 'laurilehmijoki/haskellmode-vim'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'dag/vim2hs'
 
 call vundle#end()
 filetype plugin indent on
@@ -249,36 +252,32 @@ let g:SuperTabDefaultCompletionType = '<C-x><C-i>'
 
 "Configurations for php-refactoring
 let g:php_refactor_command='php ~/bin/refactor.phar'
-"let g:haddock_browser = '/usr/bin/google-chrome'
+let g:haddock_browser = '/usr/bin/google-chrome'
 "
-"let g:ghc = '/usr/bin/ghc'
-"let g:haskell_conceal = 0
-"let g:haskell_multiline_strings = 1
-"
-" disable all conceals, including the simple ones like
-" lambda and composition
-"let g:haskell_conceal = 0
+let g:ghc = '/usr/bin/ghc'
+let g:haskell_conceal = 0
+let g:haskell_multiline_strings = 1
+
 
 " disable concealing of "enumerations": commatized lists like
 " deriving clauses and LANGUAGE pragmas,
 " otherwise collapsed into a single ellipsis
-"let g:haskell_conceal_enumerations = 0
+let g:haskell_conceal_enumerations = 0
 
 
 "Configurations for ghcmod
-"let g:ghcmod_ghc_options = ['-idir1', '-idir2']
-"autocmd BufRead,BufNewFile ~/.xmonad/* call s:add_xmonad_path()
-"function! s:add_xmonad_path()
-"  if !exists('b:ghcmod_ghc_options')
-"    let b:ghcmod_ghc_options = []
-"  endif
-"  call add(b:ghcmod_ghc_options, '-i' . expand('~/.xmonad/lib'))
-"endfunction
-"hi ghcmodType ctermbg=yellow
-"let g:ghcmod_type_highlight = 'ghcmodType'
-"
-"let $PATH = $PATH . ':' . expand("~/.cabal/bin")
-"
+let g:ghcmod_ghc_options = ['-idir1', '-idir2']
+autocmd BufRead,BufNewFile ~/.xmonad/* call s:add_xmonad_path()
+function! s:add_xmonad_path()
+  if !exists('b:ghcmod_ghc_options')
+    let b:ghcmod_ghc_options = []
+  endif
+  call add(b:ghcmod_ghc_options, '-i' . expand('~/.xmonad/lib'))
+endfunction
+hi ghcmodType ctermbg=yellow
+let g:ghcmod_type_highlight = 'ghcmodType'
+
+let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
