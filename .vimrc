@@ -191,22 +191,23 @@ nnoremap <leader>fd :FufDir<CR>
 nnoremap <leader>ff :FufFile<CR>
 
 "Eclim key mappings
-nnoremap <leader>ch :JavaCallHierarchy<CR>
-nnoremap <leader>gc :JavaConstructor<CR>
-vnoremap <leader>gc :JavaConstructor<CR>
+nnoremap <leader>jch :JavaCallHierarchy<CR>
+nnoremap <leader>jgc :JavaConstructor<CR>
+vnoremap <leader>jgc :JavaConstructor<CR>
 
-nnoremap <leader>gg :JavaGet<CR>
-vnoremap <leader>gg :JavaGet<CR>
-nnoremap <leader>gs :JavaGetSet<CR>
-vnoremap <leader>gs :JavaGetSet<CR>
-nnoremap <leader>gi :JavaImpl<CR>
-nnoremap <leader>gd :JavaDelegate<CR>
+nnoremap <leader>jgg :JavaGet<CR>
+vnoremap <leader>jgg :JavaGet<CR>
+nnoremap <leader>jgs :JavaGetSet<CR>
+vnoremap <leader>jgs :JavaGetSet<CR>
+nnoremap <leader>jgi :JavaImpl<CR>
+nnoremap <leader>jgd :JavaDelegate<CR>
 
-nnoremap <leader>fs :JavaFormat<CR>
-nnoremap <leader>rr :JavaRename<CR>
-nnoremap <leader>rm :JavaMove<CR>
+nnoremap <leader>jfs :JavaFormat<CR>
+nnoremap <leader>jr :JavaRename<CR>
+nnoremap <leader>jm :JavaMove<CR>
 
-nnoremap <leader>io :JavaImportOrganize<CR>
+nnoremap <leader>jio :JavaImportOrganize<CR>
+
 
 
 "nnoremap <C-e> :NERDTreeToggle<CR>
