@@ -169,15 +169,12 @@ set lines=100 columns=250
 "Font size settings
 set guifont=Consolas:h12
 
-"Key mappings
-"map <S-h> <C-w>h
-"map <S-j> <C-w>j
-"map <S-k> <C-w>k
-"map <S-l> <C-w>l
-nnoremap <leader>a <C-w>h
-nnoremap <leader>s <C-w>j
-nnoremap <leader>w <C-w>k
-nnoremap <leader>d <C-w>l
+"Navigation key mappings
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 nnoremap <leader>q :bprevious<CR>
 nnoremap <leader>e :bnext<CR>
 nnoremap <leader>r :ls<CR>
@@ -187,6 +184,29 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 "nnoremap <C-t> :tabnew<CR>
 nnoremap <leader>1 :tabprevious<CR>
 nnoremap <leader>2 :tabnext<CR>
+
+"FuzzyFinder key mappings
+nnoremap <leader>fb :FufBuffer<CR>
+nnoremap <leader>fd :FufDir<CR>
+nnoremap <leader>ff :FufFile<CR>
+
+"Eclim key mappings
+nnoremap <leader>ch :JavaCallHierarchy<CR>
+nnoremap <leader>gc :JavaConstructor<CR>
+vnoremap <leader>gc :JavaConstructor<CR>
+
+nnoremap <leader>gg :JavaGet<CR>
+vnoremap <leader>gg :JavaGet<CR>
+nnoremap <leader>gs :JavaGetSet<CR>
+vnoremap <leader>gs :JavaGetSet<CR>
+nnoremap <leader>gi :JavaImpl<CR>
+nnoremap <leader>gd :JavaDelegate<CR>
+
+nnoremap <leader>fs :JavaFormat<CR>
+nnoremap <leader>rr :JavaRename<CR>
+nnoremap <leader>rm :JavaMove<CR>
+
+nnoremap <leader>io :JavaImportOrganize<CR>
 
 
 "nnoremap <C-e> :NERDTreeToggle<CR>
@@ -219,6 +239,8 @@ Plugin 'gmarik/vundle'
 " My bundles here:
 "
 " Git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'vim-scripts/L9'
+Plugin 'FuzzyFinder'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
 Plugin 'derekwyatt/vim-scala'
