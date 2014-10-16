@@ -265,6 +265,10 @@ Plugin 'laurilehmijoki/haskellmode-vim'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'dag/vim2hs'
 
+Plugin 'indenthtml.vim'
+Plugin 'mattn/emmet-vim'
+
+
 call vundle#end()
 filetype plugin indent on
 let g:pydiction_location = 'C:/Users/stevenl/.vim/bundle/Pydiction/complete-dict'
