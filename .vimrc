@@ -1,3 +1,4 @@
+
 "              If you're a more advanced user, building your own .vimrc based
 "              on this file is still a good idea.
 
@@ -114,7 +115,7 @@ set t_vb=
 set mouse=a
 
 " Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
+" press <Enter> to continue
 set cmdheight=2
 
 " Display line numbers on the left
@@ -126,20 +127,8 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
-set cursorline
 
 "------------------------------------------------------------
-" Indentation options {{{1
-"
-" Indentation settings according to personal preference.
-
-" Indentation settings for using 2 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-
 " Indentation settings for using hard tabs for indent. Display tabs as
 " two characters wide.
 "set shiftwidth=2
@@ -164,61 +153,43 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 "Window size settings
 "set nofu
-set lines=100 columns=250
+"set lines=50 columns=125
 
 "Font size settings
-set guifont=Consolas:h12
+set guifont=Ubuntu\ Mono\ 13
+"Key mappings
+"map <S-h> <C-w>h
+"map <S-j> <C-w>j
+"map <S-k> <C-w>k
+"map <S-l> <C-w>l
 
-"Navigation key mappings
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <S-h> :tabprevious<CR>
+nnoremap <S-l> :tabnext<CR>
+nnoremap <S-k> :bprevious<CR>
+nnoremap <S-j> :bnext<CR>
 
-nnoremap <leader>q :bprevious<CR>
-nnoremap <leader>e :bnext<CR>
-nnoremap <leader>r :ls<CR>
-nnoremap <leader>t :Tagbar<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-c> :tabclose<CR>
+nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
-
-"nnoremap <C-t> :tabnew<CR>
-nnoremap <leader>1 :tabprevious<CR>
-nnoremap <leader>2 :tabnext<CR>
-
-"FuzzyFinder key mappings
-nnoremap <leader>fb :FufBuffer<CR>
-nnoremap <leader>fd :FufDir<CR>
-nnoremap <leader>ff :FufFile<CR>
-
-"Eclim key mappings
-nnoremap <leader>jch :JavaCallHierarchy<CR>
-nnoremap <leader>jgc :JavaConstructor<CR>
-vnoremap <leader>jgc :JavaConstructor<CR>
-
-nnoremap <leader>jgg :JavaGet<CR>
-vnoremap <leader>jgg :JavaGet<CR>
-nnoremap <leader>jgs :JavaGetSet<CR>
-vnoremap <leader>jgs :JavaGetSet<CR>
-nnoremap <leader>jgi :JavaImpl<CR>
-nnoremap <leader>jgd :JavaDelegate<CR>
-
-nnoremap <leader>jfs :JavaFormat<CR>
-nnoremap <leader>jr :JavaRename<CR>
-nnoremap <leader>jm :JavaMove<CR>
-
-nnoremap <leader>jio :JavaImportOrganize<CR>
+nnoremap <leader>ev :tabe $MYVIMRC<CR>
+nnoremap <leader>sv :so $MYVIMRC<CR>
+nnoremap <leader>0 <C-w>o
+nnoremap <leader>1 :sp<CR>
+nnoremap <leader>2 :vs<CR>
 
 
-
-"nnoremap <C-e> :NERDTreeToggle<CR>
 "nnoremap <C-i> :TlistToggle<CR>
-highlight Pmenu ctermfg=1 ctermbg=4 guibg=grey30
 
 set nohlsearch
 
 "clang-complete settings
-"let g:clang_library_path='/usr/lib'
-"let g:clang_complete_auto=1
+let g:clang_library_path='/usr/lib'
+let g:clang_complete_auto=1
 
 
 "VimLite settings
@@ -240,9 +211,11 @@ Plugin 'gmarik/vundle'
 " My bundles here:
 "
 " Git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'vim-scripts/L9'
-Plugin 'FuzzyFinder'
 Plugin 'Shougo/vimproc'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'megaannum/self'
+Plugin 'megaannum/forms'
+Plugin 'megaannum/vimside'
 Plugin 'Shougo/unite.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'jiangmiao/auto-pairs'
@@ -260,7 +233,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'lsdr/monokai'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'scrooloose/nerdtree'
-Plugin 'megaannum/vimside'
+
 Plugin 'laurilehmijoki/haskellmode-vim'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'dag/vim2hs'
@@ -268,28 +241,27 @@ Plugin 'dag/vim2hs'
 Plugin 'indenthtml.vim'
 Plugin 'mattn/emmet-vim'
 
-
 call vundle#end()
 filetype plugin indent on
-let g:pydiction_location = 'C:/Users/stevenl/.vim/bundle/Pydiction/complete-dict'
-let g:pydiction_menu_height = 10 
 "autocmd FileType php set omnifunc=phpcomplete_extended#CompletePHP
 let g:SuperTabDefaultCompletionType = '<C-x><C-i>'
-"let g:phpcomplete_index_composer_command="composer.phar"
+let g:phpcomplete_index_composer_command="composer.phar"
 
-"Configurations for php-refactoring
-let g:php_refactor_command='php ~/bin/refactor.phar'
+
 let g:haddock_browser = '/usr/bin/google-chrome'
-"
+
 let g:ghc = '/usr/bin/ghc'
 let g:haskell_conceal = 0
 let g:haskell_multiline_strings = 1
 
+" disable all conceals, including the simple ones like
+" lambda and composition
+"let g:haskell_conceal = 0
 
 " disable concealing of "enumerations": commatized lists like
 " deriving clauses and LANGUAGE pragmas,
 " otherwise collapsed into a single ellipsis
-let g:haskell_conceal_enumerations = 0
+"let g:haskell_conceal_enumerations = 0
 
 
 "Configurations for ghcmod
@@ -306,36 +278,32 @@ let g:ghcmod_type_highlight = 'ghcmodType'
 
 let $PATH = $PATH . ':' . expand("~/.cabal/bin")
 
-set encoding=utf-8  " The encoding displayed.
-set fileencoding=utf-8  " The encoding written to file.
+" Indentation options {{{1
+"
+" Indentation settings according to personal preference.
 
-colorscheme lucius
-autocmd FileType tagbar setlocal cursorline
+" Indentation settings for using 2 spaces instead of tabs.
+" Do not change 'tabstop' from its default value of 8 with this setup.
+filetype plugin indent on
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+set smartindent
+
+let g:snippets_dir = '/home/steven/.vim/bundle/snipmate.vim/snippets'
+let g:html_indent_inctags = "html,body,head,tbody"
+" set t_Co=256
 set cursorline cursorcolumn
+colorscheme Tomorrow-Night
 
-fu! GetSelectionText()
-  exe 'normal! gv"ay'
-  return getreg("a")
+fu! SetFtXml()
+  setlocal filetype=xml
 endfu
 
-function! SearchPatternInFiles(pattern, files)
-  let cmd = "vimgrep " . a:pattern . " " . a:files
-  echom "Executing: " . cmd . " ..."
-  exe cmd
-endfunction
+augroup filetype_html
+  autocmd!
+  au BufNewFile,BufRead *.html,*.xhtml,*.xml call SetFtXml()
+augroup END
 
-fu! SearchWordUnderCursorInFilesOfTheSameType()
-  let pattern = '/' . expand("<cword>") . '/gj'
-  let type = expand("%:e")
-  let files = expand("%:p:h") . '/**/*.' . type
-  call SearchPatternInFiles(pattern, files)
-endfu
-
-fu! SearchSelectionInFilesOfTheSameType()
-  let pattern = '/' . GetSelectionText() . '/gj'
-  let files = expand("%:p:h") . '/**/*.' . expand("%:e")
-  call SearchPatternInFiles(pattern, files)
-endfu
-
-nnoremap <leader>* :call SearchWordUnderCursorInFilesOfTheSameType()<CR><CR>:copen<CR>
-vnoremap <leader>* :call SearchSelectionInFilesOfTheSameType()<CR><CR>:copen<CR>
+highlight Pmenu ctermfg=1 ctermbg=none guibg=grey30
